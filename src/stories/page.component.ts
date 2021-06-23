@@ -1,4 +1,5 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { BasePageComponent } from './base-page.component';
 
 @Component({
   selector: 'storybook-page',
@@ -11,6 +12,8 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
     ></storybook-header>
     <section>
       <h2>Pages in Storybook</h2>
+
+      <p> {{inputFromBasePage.newValue}}</p>
       <p>
         We recommend building UIs with a
         <a href="https://componentdriven.org" target="_blank" rel="noopener noreferrer">
@@ -59,7 +62,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   </article>`,
   styleUrls: ['./page.css'],
 })
-export default class PageComponent {
+export default class PageComponent extends BasePageComponent {
   @Input()
   user: unknown = null;
 
